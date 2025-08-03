@@ -1,196 +1,125 @@
-````md
-# 🙌 Contributing to WhatTheShell
+# 🤝 Contributing to `whattheshell`
 
-Thank you for considering contributing to **WhatTheShell**! This guide will walk you through everything you need to know to contribute effectively.
+Welcome! We're excited that you're interested in contributing to **`whattheshell`**, a creative shell-based project made by and for hackers, learners, and tinkerers. 🚀
 
----
-
-## 🧰 Prerequisites
-
-- A GitHub account
-- Git installed on your machine
-- Basic knowledge of Git and GitHub
+This guide helps you contribute **cleanly and repeatedly**, whether you're fixing typos or building features.
 
 ---
 
-## 🚀 Quick Contribution Workflow
+## 🛠️ One-Time Setup
 
-> Repeat this flow each time you want to work on a new feature or fix.
+1. **Fork this repo**
+   - Go to [https://github.com/apaleblueman/whattheshell](https://github.com/apaleblueman/whattheshell)
+   - Click **Fork** (top-right)
 
----
+2. **Clone your fork**
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/whattheshell.git
+   cd whattheshell
+   ```
 
-### 1️⃣ Fork the Repository
-
-Click the **Fork** button at the top right of [the main repo](https://github.com/apaleblueman/whattheshell).
-
----
-
-### 2️⃣ Clone Your Fork
-
-```bash
-git clone https://github.com/<your-username>/whattheshell.git
-cd whattheshell
-````
-
----
-
-### 3️⃣ Set Upstream Remote (Only Once)
-
-This connects your forked repo to the original project so you can fetch updates.
-
-```bash
-git remote add upstream https://github.com/apaleblueman/whattheshell.git
-git remote -v
-```
-
-You only need to do this once after cloning.
+3. **Add the original repo as upstream**
+   ```bash
+   git remote add upstream https://github.com/apaleblueman/whattheshell.git
+   git remote -v  # should show both origin and upstream
+   ```
 
 ---
 
-### 4️⃣ Sync Your Fork Before New Work
+## 🔁 The Contribution Cycle (Follow Every Time You Add Something)
 
-Before starting new work, always sync your local and remote fork:
-
+### 1️⃣ Sync your fork before starting
 ```bash
 git checkout main
-git pull upstream main
+git pull --rebase upstream main
 git push origin main
 ```
 
----
-
-### 5️⃣ Create a New Branch
-
+### 2️⃣ Create a new feature/fix branch
 ```bash
-git checkout -b feature/<your-feature-name>
+git checkout -b feature/your-task-name
 ```
+Examples:
+- `feature/add-prompt-emoji`
+- `fix/parse-error`
 
-💡 Name branches like `feature/xyz`, `bugfix/abc`, `docs/update-readme`, etc.
+**📌 Always use a separate branch for each PR. Don’t work on `main`.**
 
----
-
-### 6️⃣ Make Your Changes
-
-* Write your code
-* Test it
-* Follow the project’s structure and naming conventions
-
----
-
-### 7️⃣ Stage and Commit
-
+### 3️⃣ Do your work
+- Edit, commit regularly.
+- Keep changes focused.
 ```bash
 git add .
-git commit -m "✨ Add: brief explanation of the change"
+git commit -m "Add emoji to prompt"
 ```
 
-💬 Use [conventional commits](https://www.conventionalcommits.org/) when possible:
-
-* `✨` for features
-* `🐛` for bugfixes
-* `📝` for docs
-* `♻️` for refactoring
-* `🚀` for performance
-* `🔧` for config
-* `🔥` for removed code
-
----
-
-### 8️⃣ Push to Your Fork
-
+### 4️⃣ Push to your fork
 ```bash
-git push origin feature/<your-feature-name>
+git push origin feature/your-task-name
 ```
 
----
+### 5️⃣ Open a Pull Request
+- Go to your fork on GitHub.
+- Click **Compare & pull request**.
+- Set:
+  - **base repo:** `apaleblueman/whattheshell`
+  - **base branch:** `main`
+  - **head repo:** your fork
+  - **head branch:** your feature branch
+- Add a clear title + description
 
-### 9️⃣ Open a Pull Request (PR)
+### 6️⃣ Wait for review and feedback
+Maintainer will:
+- Review the PR 🕵️‍♂️
+- Request changes (if needed)
+- Merge into `main` ✅
 
-* Go to your forked repo on GitHub
-* Click **Compare & pull request**
-* Fill in title and description
-* Submit!
-
-⛔ Do **not** merge your own PR — wait for review by the maintainer.
-
----
-
-## 🔁 Keeping Your Fork Updated
-
-Keep your fork in sync to avoid conflicts:
-
+### 7️⃣ Clean up after merge
 ```bash
 git checkout main
-git pull upstream main
+git pull --rebase upstream main
 git push origin main
+
+# Optional: Delete branch
+git branch -d feature/your-task-name
+git push origin --delete feature/your-task-name
 ```
 
 ---
 
-## 🧹 After PR is Merged
+## 💡 Pro Tips
 
-If your PR is accepted and merged:
+- Pull with `--rebase` to avoid messy merge commits:
+  ```bash
+  git pull --rebase upstream main
+  ```
+- Write clear commit messages
+- Don’t mix unrelated changes in one PR
+- Ask in Discord `#help` if you're stuck!
 
-### 🔨 Delete the local branch
+---
 
+## 🧪 Sample Script (optional)
+`sync.sh` — use this before any new task:
 ```bash
-git branch -d feature/<your-feature-name>
-```
-
-### 🔄 Start fresh next time
-
-Repeat the **sync → branch → commit → PR** cycle for each new contribution.
-
----
-
-## ❓ FAQ
-
-### ❓ Can I just clone instead of forking?
-
-🔐 No. Contributors must fork. Direct push access is not allowed for security and review purposes.
-
----
-
-### ❓ What is a merge commit?
-
-A merge commit is a special commit Git makes when combining branches. It's not bad, but we try to keep history clean. Maintainers may **squash and merge** your commits into one.
-
----
-
-## 🧪 Example Workflow
-
-```bash
-# One-time setup
-git clone https://github.com/<your-username>/whattheshell.git
-cd whattheshell
-git remote add upstream https://github.com/apaleblueman/whattheshell.git
-
-# Before each new task
+#!/bin/bash
 git checkout main
-git pull upstream main
+git fetch upstream
+git pull --rebase upstream main
 git push origin main
-git checkout -b feature/your-feature
-
-# Work...
-# Add, commit, push
-git push origin feature/your-feature
-
-# Create PR on GitHub
+```
+Run it like this:
+```bash
+bash sync.sh
 ```
 
 ---
 
-## 📜 License
-
-By contributing, you agree to license your code under the [MIT License](LICENSE).
+## 🙌 Thanks for contributing!
+Together, we’re making `whattheshell` better, cooler, and geekier.
 
 ---
 
-## 🎉 Thanks!
+Feel free to ping the maintainer `@apaleblueman` or ask in our Discord!
 
-Your contribution is appreciated. Let's make WhatTheShell awesome together!
-
-```
-
-
-
+> _Hack the shell, change the world._
