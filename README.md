@@ -5,5 +5,6 @@
 
 Add your name and a fun message below as your first official commit!
 
-- [ ] `@your-github-username` – _"Hello world from Git CLI!"_
-- [ ] `@apaleblueman` – _"Hello world!i am maintainer of this repo"_
+- [ ] `@sanchit yay` – _"Hello world from Git CLI!"_
+- [ ] `@apalebluema` – _"Hello world!i am maintainer of this repo"_
+-[  ] `hi`
