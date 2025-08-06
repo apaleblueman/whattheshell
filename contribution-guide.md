@@ -169,6 +169,10 @@ If your Pull Request (PR) is behind the main branch and someone else's PR was me
 
 7. ✅ Your PR on GitHub will now show “This branch has no conflicts” — you're good to go!
 
+still confused , watch the video below!
+
+https://youtu.be/DloR0BOGNU0?si=5PFUsK1Ti7c4wKrv 
+
 ---
 
 
