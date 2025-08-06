@@ -115,6 +115,63 @@ bash sync.sh
 
 ---
 
+### 🔀 Resolving Merge Conflicts
+
+Sometimes, if two contributors edit the same part of a file (e.g., `README.md`), Git can't merge changes automatically and shows a **merge conflict**.
+
+#### 📌 When does this happen?
+
+If your Pull Request (PR) is behind the main branch and someone else's PR was merged first, you'll need to resolve the conflict **before your PR can be merged**.
+
+---
+
+#### 🛠️ How to Fix It (Using Terminal + Any Editor)
+
+1. **Make sure you're on your feature branch:**
+
+   ```bash
+   git checkout <your-feature-branch>
+   ```
+
+2. **Pull the latest changes from `main`:**
+
+   ```bash
+   git fetch origin
+   git pull origin main
+   ```
+
+   > ⚠️ If there's a conflict, Git will tell you which file(s) need to be fixed.
+
+3. **Open the conflicted file** in your editor (e.g., VS Code) and look for markers:
+
+   ```c
+   <<<<<<< HEAD
+   Your changes
+   =======
+   Changes from main branch
+   >>>>>>> main
+   ```
+
+4. **Manually edit the file** to keep what you need, then **remove the conflict markers**.
+
+5. **Add and commit the resolved file:**
+
+   ```bash
+   git add <file>
+   git commit -m "Resolved merge conflict"
+   ```
+
+6. **Push your updated branch:**
+
+   ```bash
+   git push origin <your-feature-branch>
+   ```
+
+7. ✅ Your PR on GitHub will now show “This branch has no conflicts” — you're good to go!
+
+---
+
+
 ## 🙌 Thanks for contributing!
 Together, we’re making `whattheshell` better, cooler, and geekier.
 
