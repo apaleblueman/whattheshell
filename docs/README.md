@@ -27,7 +27,3 @@
 [INFO] Output redirected to: output.txt
 ```
 **License:** MIT License
-
----
-
-Would you like me to also generate a shorter **GitHub tagline (one-liner)** version for the repo header (under 120 characters)? It’s perfect for the repo summary line.
